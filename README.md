@@ -1,3 +1,5 @@
-# olah_data
+# Tugas Latihan Kuis
 
-A new Flutter project.
+Nama : Zeva Mila Sabrina
+NIM : 124230043
+Kelas : SI-A
