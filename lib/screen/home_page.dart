@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:olah_data/data/game_store_data.dart';
+import 'package:olah_data/screen/detail_page.dart';
 import 'package:olah_data/screen/login_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -60,28 +61,49 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _gameStore(context, int index){
-    return InkWell(
-      onTap: () {
-        //jadi tugas
-        //bawa data item yang diklik ke DetailPage -> Pakai Navigation.push
-        //bikin DetailPage, tampilkan data sesuai kreasi
-      },
-      child: Container(
-        padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: Colors.amber,
-          border: Border.all(width: 2)
+Widget _gameStore(context, int index){
+  final selectedGame = gameList[index]; // Ambil data game yang diklik
+
+  return InkWell(
+    onTap: () {
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return DetailPage(game: selectedGame);
+          },
         ),
-        child: Column(
-          children: [
-            Image.network(gameList[index].imageUrls[0]),
-            Text(gameList[index].name),
-            Text("Review : ${gameList[index].reviewAverage}")
-          ],
-        ),
+      );
+    },
+    child: Container(
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 255, 192, 247),
+        border: Border.all(width: 2)
       ),
-      
-    );
-  }
+      child: Column(
+        children: [
+          Image.network(
+            selectedGame.imageUrls[0],
+            height: 100, // Sesuaikan tinggi agar grid view terlihat bagus
+            fit: BoxFit.cover,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            selectedGame.name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Text(
+            "Review : ${selectedGame.reviewAverage}",
+            style: const TextStyle(fontSize: 14, color: Colors.black54),
+          )
+        ],
+      ),
+    ),
+  );
+}
 }
