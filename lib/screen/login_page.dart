@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
-          fillColor: Colors.cyan,
+          fillColor: const Color.fromARGB(255, 255, 192, 247),
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
-          fillColor: Colors.cyan,
+          fillColor: const Color.fromARGB(255, 255, 192, 247),
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
         },
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: Colors.cyan,
+          backgroundColor: const Color.fromARGB(255, 255, 192, 247),
         ),
         child: Text("LOGIN", 
         style: TextStyle(
